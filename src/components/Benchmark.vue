@@ -3,12 +3,12 @@
     <button
       v-on:click="add1000Elements"
     >
-      Add 10,000 elements
+      Add 10,000 div elements
     </button>
     <button
       v-on:click="remove1000Elements"
     >
-      Remove 10,000 elements
+      Remove 10,000 div elements
     </button>
     <BenchmarkContainer 
       :numberOfElements=numberOfElements
@@ -39,9 +39,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-p {
-  color: green
-}
-</style>

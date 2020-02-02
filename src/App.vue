@@ -17,8 +17,4 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Times'
-}
-</style>
+<style />
