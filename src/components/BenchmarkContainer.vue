@@ -6,8 +6,8 @@ export default {
       return createElement('div',
       Array.apply(null, { length:
         this.$props.numberOfElements
-      }).map((e, i) => {
-          return createElement('div', 'div #' + i)
+      }).map(() => {
+          return createElement('div', 'DOM')
       }))
   },
   watch: {
@@ -22,10 +22,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-div {
-  color: red;
-  background: blue;
-}
-</style>
