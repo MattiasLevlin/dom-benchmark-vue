@@ -1,76 +1,81 @@
 <template>
   <div>
     <div class="benchmark">
+      V-FOR
       <button @click="addDiv()">1 addDiv</button>
       <button @click="editOneDiv()">2 editOneDiv</button>
       <button @click="editAllDiv()">3 editAllDiv</button>
       <button @click="removeOneDiv()">4 removeOneDiv</button>
       <button @click="removeAllDiv()">5 removeAllDiv</button>
+      {{ randomText }}
     </div>
-    <div class="asd">
         <div
+          id="container"
           v-for="i in divToCreate"
-          v-bind:key="i">
+          v-bind:key="i"
+          v-html="htmlxc(i)"
+          :ref="i"
+        >
             <p>Div{{ i }}</p>
         </div>
-    </div>
 
   </div>
 </template>
 
 <script>
 
+/* eslint-disable no-console */
+
 export default {
   name: 'Benchmark',
   data () {
     return {
       divToCreate: 0,
-      asd1: null,
-      asd2: null
+      startTimer: null,
+      stopTimer: null,
+      asdf3: 'asd',
+      randomText: 'asd'
+      // htmlxc: `<p>Message ${i}</p>`
     }
   },
+  computed: {
+    /* htmlxc: function() {
+      return `<h1>Hello ${ Math.random() }</h1>`;
+    } */
+  },
   methods: {
-    /* eslint-disable no-console */
+
+    htmlxc: function(i) {
+      return `<p>Hello ${ i } ${this.asdf3} </p>`;
+    },
 
     // 1
     addDiv () {
-      this.asd1 = performance.now()
+      this.startTimer = performance.now()
       this.divToCreate = 10000
     },
     // 2
     editOneDiv: function() {
-      // this.selectedTest = 'edit'
+      this.startTimer = performance.now()
+      this.$refs[1][0].textContent = Math.random()
+      this.randomText = Math.random()
     },
     editAllDiv: function() {
-
+      this.startTimer = performance.now()
+      this.asdf3 = Math.random()
     },
     removeOneDiv: function() {
-      this.asd1 = performance.now()
+      this.startTimer = performance.now()
       this.divToCreate = this.divToCreate - 1
     },
     removeAllDiv: function() {
-      this.asd1 = performance.now()
+      this.startTimer = performance.now()
       this.divToCreate = 0
     },
   },
     updated: function () {
-      this.asd2 = performance.now()
-      console.log('Time it took was: ' + (this.asd2 - this.asd1) + 'milliseconds')
+      this.stopTimer = performance.now()
+      console.log('Time it took was: ' + (this.stopTimer - this.startTimer) + 'milliseconds')
     },
-    render: function (createElement) {
-    let divToCreate = []
-    if (this.selectedTest === 'add') {
-      
-      for (var i = 0; i < 10000; i += 1) {
-          divToCreate.push(<div
-            class="benchmark"
-            id={i}
-          >
-              <p>asd</p>
-          </div>)
-      }
-    }
-      return createElement(divToCreate)
-  },
 }
 </script>
