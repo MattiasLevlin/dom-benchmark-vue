@@ -33,7 +33,7 @@ export default {
       divToCreate: 0,
       startTimer: null,
       stopTimer: null,
-      asdf3: 'asd',
+      asdf3: 1,
       randomText: 'asd'
       // htmlxc: `<p>Message ${i}</p>`
     }
@@ -46,7 +46,7 @@ export default {
   methods: {
 
     htmlxc: function(i) {
-      return `<p>Hello ${ i } ${this.asdf3} </p>`;
+      return `<p>Hello ${ i * this.asdf3 } </p>`;
     },
 
     // 1
