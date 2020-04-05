@@ -34,9 +34,8 @@ export default {
 
     // 1
     addDiv () {
-      this.divToCreate = 10000
-      console.log('Testing adding 10000 elements')
       this.asd1 = performance.now()
+      this.divToCreate = 10000
     },
     // 2
     editOneDiv: function() {
@@ -46,12 +45,12 @@ export default {
 
     },
     removeOneDiv: function() {
-
+      this.asd1 = performance.now()
+      this.divToCreate = this.divToCreate - 1
     },
     removeAllDiv: function() {
-      this.divToCreate = 0
-      console.log('Testing removing 10000 elements')
       this.asd1 = performance.now()
+      this.divToCreate = 0
     },
   },
     updated: function () {
