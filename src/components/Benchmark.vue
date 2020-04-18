@@ -18,9 +18,15 @@
     >
       Remove 10,000 elements
     </button>
+    <button
+      v-on:click="edit1000Elements"
+    >
+      edit1000Elements
+    </button>
     <BenchmarkContainer 
       :numberOfElements=numberOfElements
       :startTimerArrayMap=startTimerArrayMap
+      :dogsz=dogsz
     />
         <div
           id="container"
@@ -51,7 +57,8 @@ export default {
       stopTimer: null,
       numberOfElements: 0,
       asdf3: 1,
-      randomText: 'asd'
+      randomText: 'asd',
+      dogsz: 1,
     }
   },
   methods: {
@@ -87,8 +94,13 @@ export default {
       this.startTimerArrayMap = performance.now()
       this.numberOfElements = 10000
     },
-    remove1000Elements: function() {
+    edit1000Elements: function () {
       this.startTimerArrayMap = performance.now()
+      this.numberOfElements = 10000
+      this.dogsz = Math.random()
+    },
+    remove1000Elements: function() {
+      // this.startTimerArrayMap = performance.now()
       this.numberOfElements = 0
   },
     updated: function () {
